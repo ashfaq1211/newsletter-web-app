@@ -35,11 +35,14 @@ app.post("/", function(req, res) {
 
   const jsonData = JSON.stringify(data);
 
-  const url = "https://us1.api.mailchimp.com/3.0/lists/79664efdc4";
+  const url = "https://usx.api.mailchimp.com/3.0/lists/listid";
+  // your auth key will contain a server name ranging from us1 to us22, replace the x in the url with that number.
+  // also, replace listid with the list id you get from your mailing list that you want to use from Mailchimp
 
   const options = {
     method: "POST",
-    auth: "ashfaq:1da5ea6e5175f532c8921bf1b8ae0251-us1"
+    auth: ""
+    // get your own auth key from Mailchimp and put it in the auth field above.
   }
 
   const request = https.request(url, options, function(response) {
@@ -72,10 +75,3 @@ app.post("/failure", function(req, res) {
 app.listen(process.env.PORT || 3000, function() { // Heroku port or local port 3000
   console.log("Server is running on port 3000");
 });
-
-
-// API Key
-// 1da5ea6e5175f532c8921bf1b8ae0251-us1
-
-// List ID
-// 79664efdc4
